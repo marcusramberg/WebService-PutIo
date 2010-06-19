@@ -6,9 +6,9 @@ use base 'Mojo::Base';
 
 use Mojo::Client;
 use Mojo::JSON;
-use Mojo::URI;
+use Mojo::URL;
 use Net::PutIo::Result;
-use Carp::Croak;
+use Carp qw/croak/;
 
 __PACKAGE__->attr(qw/api_key api_secret/);
 __PACKAGE__->attr(client => sub { Mojo::Client->new; });
@@ -22,10 +22,10 @@ sub request {
 		api_secret => $self->api_secret,
 		params	   => \%params
 	};
-	my $uri=Mojo::URI->new(base=>'http://api.put.io/v1/')
+	my $url=Mojo::URL->new(base=>'http://api.put.io/v1/')
 				     ->fragment($method)
 				     ->query(method=>$method);
-	my $tx=$self->client->post_form( $uri => $data );
+	my $tx=$self->client->post_form( $url => $data );
 	if (my $res=$tx->success) {
 		return Mojo::PutIo::Result->new( res=> { request => $self->json->encode($data) } );
 	}
