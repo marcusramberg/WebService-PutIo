@@ -79,6 +79,11 @@ The JSON object to use. Defaults to L<Mojo::JSON>->new
 Send an API request. Takes a class to operate on, an API method, and
 an optional hash of parameters. See the put.io
 
+=head1 SEE ALSO
+
+L<WebService::PutIo::Files>, L<WebService::PutIo::Messages>, L<WebService::PutIo::Subscriptions>,
+L<WebService::PutIo::Transfers>, L<WebService::PutIo::URLs>,L<WebService::PutIo::User>
+
 =head1 AUTHOR
 
 Marcus Ramberg, C<mramberg@cpan.org>.
