@@ -1,7 +1,7 @@
 use Test::More;
 plan skip_all => 'This test requires PUT_IO_API_KEY and PUT_IO_SECRET'
   unless $ENV{PUT_IO_API_KEY} && $ENV{PUT_IO_API_SECRET};
-plan tests => 1;
+plan tests => 2;
 
 use WebService::PutIo;
 

@@ -17,6 +17,7 @@ __PACKAGE__->attr(json => sub { Mojo::JSON->new; });
 sub request {
 	my ($self,$class,$method,%params)=@_;
 	croak "Must set api_key and api_secret" unless $self->api_key && $self->api_secret;
+	$params ||= ();
 	my $data={
 		api_key    => $self->api_key,
 		api_secret => $self->api_secret,
@@ -26,9 +27,9 @@ sub request {
 				     ->path("/v1/$class/$method")
 				     ->query(method=>$method);
 	warn("result: $url");
-	my $tx=$self->client->post_form( $url => $data );
+	my $tx=$self->client->post_form( $url => { request => $self->json->encode($data) } );
 	if (my $res=$tx->success) {
-		return WebService::PutIo::Result->new( res=> { request => $self->json->encode($data) } );
+		return WebService::PutIo::Result->new( response => $res );
 	}
 	else {
 		my ($message,$code)=$tx->error;
