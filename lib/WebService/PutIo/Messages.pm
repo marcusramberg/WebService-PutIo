@@ -28,7 +28,19 @@ Dashboard message related methods for the put.io web service
 
 =head2 list
 
+Returns a list of messages
+
 =head2 delete
+
+Deletes a message
+
+=head3 Parameters:
+
+=over 4 
+
+=item id
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 

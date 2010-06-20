@@ -28,7 +28,27 @@ Methods to analyze urls for use with put.io
 
 =head2 analyze
 
+Returns an array of urls that Put.io can fetch
+
+=head3 Parameters:
+
+=over 4
+
+=item urls
+
+=back
+
 =head2 extracturls
+
+Returns an array of urls
+
+=head3 Parameters:
+
+=over 4
+
+=item txt
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 

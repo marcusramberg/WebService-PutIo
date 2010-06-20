@@ -3,7 +3,7 @@ use WebService::PutIo::Files;
 use WebService::PutIo::Messages;
 use WebService::PutIo::Transfers;
 use WebService::PutIo::URLs;
-use WebService::PutIo::Users;
+use WebService::PutIo::User;
 use WebService::PutIo::Subscriptions;
 
 
@@ -27,7 +27,7 @@ use WebService::PutIo::Subscriptions;
 };
 
 {
-	my $user=WebService::PutIo::Users->new();
+	my $user=WebService::PutIo::User->new();
 	can_ok($user,qw/info friends/);
 };
 

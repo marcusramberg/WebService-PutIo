@@ -34,19 +34,132 @@ File related methods for the put.io web service
 
 =head2 list
 
+Returns the list of items in a folder.
+
+=over 4 
+
+=item id = STRING or INTEGER
+
+=item parent_id = STRING or INTEGER
+
+
+=item offset = INTEGER (Default:0)
+
+=item limit = INTEGER (Default: 20)
+
+=item type = STRING (See Item class for available types)
+
+=item orderby = STRING (Default: createdat_desc)
+
+=back
+
+=head3 Orderby parameters:
+
+=over 4 
+
+=item id_asc
+
+=item id_desc
+
+=item type_asc
+
+=item type_desc
+
+=item name_asc
+
+=item name_desc
+
+=item extension_asc
+
+=item extension_desc
+
+=item createdat_asc
+
+item= createdat_desc (Default)
+
+=back
+
 =head2 create_dir
+
+Creates and returns a new folder.
+
+=head3 Parameters:
+
+=over 4
+
+=item name
+
+=item parent_id
+
+=back 
 
 =head2 info
 
+Returns detailed information about an item.
+
+=head3 Parameters:
+
+=over 4
+
+=item id
+
+=back
+
 =head2 rename
+
+Renames and returns an item
+
+=head3 Parameters:
+
+=over 4
+
+=item id
+
+=item name
+
+=back
 
 =head2 move
 
+Moves an item from a folder to another, and returns it.
+
+=head3 Parameters:
+
+=over 4
+
+=item id
+
+=item parent_id
+
+=back
+
 =head2 delete
+
+Deletes an item
+
+=head3 Parameters:
+
+=over 4 
+
+=item id
+
+=back
 
 =head2 search
 
+Returns list of found items
+
+=head3 Parameters:
+
+=over 4
+
+=item query
+
+=back
+
 =head2 dirmap
+
+Returns a flat list of directory list. Parent_id is the id of a folder the item is in.
 
 =head1 COPYRIGHT AND LICENSE
 

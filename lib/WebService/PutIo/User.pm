@@ -1,8 +1,8 @@
-package WebService::PutIo::Users;
+package WebService::PutIo::User;
 
 use base 'WebService::PutIo';
 
-my $class='users';
+my $class='user';
 
 sub info { shift->request($class,'info',@_); }
 sub friends { shift->request($class,'friends',@_); }
@@ -28,7 +28,11 @@ Methods to analyze urls for use with put.io
 
 =head2 info
 
+Returns more detailed info about the user.
+
 =head2 friends
+
+Returns user's friend list.
 
 =head1 COPYRIGHT AND LICENSE
 

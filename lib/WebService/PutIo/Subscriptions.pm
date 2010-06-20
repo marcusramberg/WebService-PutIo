@@ -32,15 +32,89 @@ Methods to manage RSS subscriptions on put.io
 
 =head2 list
 
+Returns a list of subscriptions
+
 =head2 create
+
+Creates a subscription and returns it.
+
+=head3 Parameters:
+
+=over 4
+
+=item title
+
+=item url
+
+=item do_filters
+
+=item dont_filters
+
+=item parent_folder_id
+
+=item paused
+
+=back
 
 =head2 edit
 
+Updates a subscription and returns it.
+
+=head3 Parameters:
+
+=over 4
+
+=item id
+
+=item title
+
+=item url
+
+=item do_filters
+
+=item dont_filters
+
+=item parent_folder_id
+
+=item paused
+
+=back
+
 =head2 delete
+
+Deletes a subscription.
+
+=head3 Parameters:
+
+=over 4
+
+=item id
+
+=back
 
 =head2 pause
 
+Toggles the activity of a subscription. Use it to pause or resume.
+
+=head3 Parameters:
+
+=over 4
+
+=item id
+
+=back
+
 =head2 info
+
+Returns detailed information of a subscription
+
+=head3 Parameters:
+
+=over 4
+
+=item id
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 

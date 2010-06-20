@@ -29,9 +29,31 @@ Transfer related methods for the put.io web service
 
 =head2 list
 
+Returns a list of active transfers.
+
 =head2 cancel
 
+Cancels a transfer.
+
+=head3 Parameters:
+
+=over 4
+
+=item id
+
+=back
+
 =head2 add
+
+Adds urls to fetch and returns a list of active transfers.
+
+=head3 Parameters:
+
+=over 4 
+
+=item links
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 
