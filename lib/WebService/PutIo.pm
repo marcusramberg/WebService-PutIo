@@ -22,9 +22,10 @@ sub request {
 		api_secret => $self->api_secret,
 		params	   => \%params
 	};
-	my $url=Mojo::URL->new(base=>'http://api.put.io/v1/')
-				     ->fragment($method)
+	my $url=Mojo::URL->new('http://api.put.io/')
+				     ->path("/v1/$class/$method")
 				     ->query(method=>$method);
+	warn("result: $url");
 	my $tx=$self->client->post_form( $url => $data );
 	if (my $res=$tx->success) {
 		return WebService::PutIo::Result->new( res=> { request => $self->json->encode($data) } );
