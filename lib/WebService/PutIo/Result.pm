@@ -1,4 +1,4 @@
-package Net::PutIo::Result;	
+package WebService::PutIo::Result;	
 
 use base qw/Mojo::Base/;
 

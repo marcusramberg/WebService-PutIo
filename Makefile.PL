@@ -8,8 +8,8 @@ use warnings;
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
-    NAME         => 'Net::PutIo',
-    VERSION_FROM => 'lib/Net/PutIo.pm',
+    NAME         => 'WebService::PutIo',
+    VERSION_FROM => 'lib/WebService/PutIo.pm',
     AUTHOR       => 'Marcus Ramberg <mramberg@cpan.org>',
     PREREQ_PM => { 'Mojo' => '0.9003' },
     test => {TESTS => 't/*.t t/*/*.t t/*/*/*.t'}

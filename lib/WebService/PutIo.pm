@@ -1,4 +1,4 @@
-package Net::PutIo;
+package WebService::PutIo;
 
 our $VERSION='0.01';
 
@@ -7,10 +7,10 @@ use base 'Mojo::Base';
 use Mojo::Client;
 use Mojo::JSON;
 use Mojo::URL;
-use Net::PutIo::Result;
+use WebService::PutIo::Result;
 use Carp qw/croak/;
 
-__PACKAGE__->attr(qw/api_key api_secret/);
+__PACKAGE__->attr([qw/api_key api_secret/]);
 __PACKAGE__->attr(client => sub { Mojo::Client->new; });
 __PACKAGE__->attr(json => sub { Mojo::JSON->new; });
 
@@ -27,7 +27,7 @@ sub request {
 				     ->query(method=>$method);
 	my $tx=$self->client->post_form( $url => $data );
 	if (my $res=$tx->success) {
-		return Mojo::PutIo::Result->new( res=> { request => $self->json->encode($data) } );
+		return WebService::PutIo::Result->new( res=> { request => $self->json->encode($data) } );
 	}
 	else {
 		my ($message,$code)=$tx->error;
