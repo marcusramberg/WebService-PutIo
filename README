@@ -1,0 +1,12 @@
+# WebService-PutIo
+
+This is a Perl library for talking to the put.io web service.
+
+# INSTALL
+
+If you don't have a configured CPAN client yet, the easiest
+way to install this module is 
+
+   $ curl -L cpanmin.us | perl - WebService::PutIo
+
+Otherwise install it as normal from CPAN.
