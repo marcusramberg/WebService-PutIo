@@ -26,14 +26,13 @@ sub request {
 	my $url=Mojo::URL->new('http://api.put.io/')
 				     ->path("/v1/$class/$method")
 				     ->query(method=>$method);
-	warn("result: $url");
 	my $tx=$self->client->post_form( $url => { request => $self->json->encode($data) } );
 	if (my $res=$tx->success) {
 		return WebService::PutIo::Result->new( response => $res );
 	}
 	else {
 		my ($message,$code)=$tx->error;
-		die "Request failed($code): $message";
+		croak "Request failed($code): $message";
 	}
 }
 
@@ -46,5 +45,49 @@ WebService::PutIo - WebService client for the put.io API
 =head1 SYNOPSIS
 
     use WebService::PutIo;
+	my $ua=WebService::PutIo->new(api_key=>'foo',api_secret=>'bar');
+	my $res=$ua->request('files','list');
+	foreach my $file (@{$res->results}) {
+	   print "Got ". Data::Dumper($file);
+	}
+
+=head1 DESCRIPTION
+
+This is a simple Web Service client for the ping.io service. See 
+
+=head1 ATTRIBUTES
+
+=head2 api_key
+
+=head2 api_secret
+
+These are the authentication credentials for ping.io. Get them from your
+account page.
+
+=head2 client
+
+The client to use. Defaults to L<Mojo::Client>->new
+
+=head2 json
+
+The JSON object to use. Defaults to L<Mojo::JSON>->new
+
+=head1 METHODS
+
+=head2 request <$class>, <$method>, [%params]
+
+Send an API request. Takes a class to operate on, an API method, and
+an optional hash of parameters. See the put.io
+
+=head1 AUTHOR
+
+Marcus Ramberg, C<mramberg@cpan.org>.
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2010, Marcus Ramberg.
+
+This program is free software, you can redistribute it and/or modify it under
+the terms of the Artistic License version 2.0.
 
 =cut
