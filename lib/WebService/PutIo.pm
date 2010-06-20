@@ -38,3 +38,13 @@ sub request {
 }
 
 1;
+
+=head1 NAME
+
+WebService::PutIo - WebService client for the put.io API
+
+=head1 SYNOPSIS
+
+    use WebService::PutIo;
+
+=cut
