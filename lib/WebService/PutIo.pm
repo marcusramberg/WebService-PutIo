@@ -4,14 +4,14 @@ our $VERSION='0.1';
 
 use base 'Mojo::Base';
 
-use Mojo::Client;
+use Mojo::UserAgent;
 use Mojo::JSON;
 use Mojo::URL;
 use WebService::PutIo::Result;
 use Carp qw/croak/;
 
 __PACKAGE__->attr([qw/api_key api_secret/]);
-__PACKAGE__->attr(client => sub { Mojo::Client->new; });
+__PACKAGE__->attr(ua => sub { Mojo::UserAgent->new; });
 __PACKAGE__->attr(json => sub { Mojo::JSON->new; });
 
 sub request {
@@ -26,7 +26,7 @@ sub request {
 	my $url=Mojo::URL->new('http://api.put.io/')
 				     ->path("/v1/$class/$method")
 				     ->query(method=>$method);
-	my $tx=$self->client->post_form( $url => { request => $self->json->encode($data) } );
+	my $tx=$self->ua->post_form( $url => { request => $self->json->encode($data) } );
 	if (my $res=$tx->success) {
 		return WebService::PutIo::Result->new( response => $res );
 	}
@@ -64,9 +64,9 @@ This is a simple Web Service client for the ping.io service. See
 These are the authentication credentials for ping.io. Get them from your
 account page.
 
-=head2 client
+=head2 ua
 
-The client to use. Defaults to L<Mojo::Client>->new
+The useragent client to use. Defaults to L<Mojo::UserAgent>->new
 
 =head2 json
 

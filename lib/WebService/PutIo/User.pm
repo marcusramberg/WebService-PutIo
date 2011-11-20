@@ -6,7 +6,7 @@ my $class='user';
 
 sub info { shift->request($class,'info',@_); }
 sub friends { shift->request($class,'friends',@_); }
-
+sub token { shift->request($class,'acctoken',@_); }
 =head1 NAME
 
 WebService::PutIo::URLs - Analyze URLs
