@@ -8,5 +8,5 @@ isa_ok($put_io,'WebService::PutIo');
 can_ok($put_io,'api_key','api_secret','request');
 isa_ok($res,'WebService::PutIo::Result');
 can_ok($res,qw/response json data count results/);
-isa_ok($put_io->client,'Mojo::Client');
+isa_ok($put_io->client,'Mojo::UserAgent');
 isa_ok($put_io->json,'Mojo::JSON');

@@ -1,17 +1,17 @@
 package WebService::PutIo;
 
-our $VERSION='0.1';
+our $VERSION='0.2';
 
 use base 'Mojo::Base';
 
-use Mojo::Client;
+use Mojo::UserAgent;
 use Mojo::JSON;
 use Mojo::URL;
 use WebService::PutIo::Result;
 use Carp qw/croak/;
 
 __PACKAGE__->attr([qw/api_key api_secret/]);
-__PACKAGE__->attr(client => sub { Mojo::Client->new; });
+__PACKAGE__->attr(client => sub { Mojo::UserAgent->new; });
 __PACKAGE__->attr(json => sub { Mojo::JSON->new; });
 
 sub request {
@@ -53,7 +53,8 @@ WebService::PutIo - WebService client for the put.io API
 
 =head1 DESCRIPTION
 
-This is a simple Web Service client for the ping.io service. See 
+This is a simple Web Service client for the ping.io service. See the other
+sub-classes for the actual API functions you can call. 
 
 =head1 ATTRIBUTES
 
@@ -66,7 +67,7 @@ account page.
 
 =head2 client
 
-The client to use. Defaults to L<Mojo::Client>->new
+The client to use. Defaults to L<Mojo::UserAgent>->new
 
 =head2 json
 
@@ -77,7 +78,7 @@ The JSON object to use. Defaults to L<Mojo::JSON>->new
 =head2 request <$class>, <$method>, [%params]
 
 Send an API request. Takes a class to operate on, an API method, and
-an optional hash of parameters. See the put.io
+an optional hash of parameters.
 
 =head1 SEE ALSO
 
