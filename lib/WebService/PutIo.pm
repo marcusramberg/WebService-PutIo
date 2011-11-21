@@ -1,6 +1,6 @@
 package WebService::PutIo;
 
-our $VERSION='0.2';
+our $VERSION='0.3';
 
 use base 'Mojo::Base';
 
