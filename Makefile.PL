@@ -11,6 +11,6 @@ WriteMakefile(
     NAME         => 'WebService::PutIo',
     VERSION_FROM => 'lib/WebService/PutIo.pm',
     AUTHOR       => 'Marcus Ramberg <mramberg@cpan.org>',
-    PREREQ_PM => { 'Mojolicious' => '1.4' },
+    PREREQ_PM    => {'Mojolicious' => '2.0'},
     test => {TESTS => 't/*.t t/*/*.t t/*/*/*.t'}
 );

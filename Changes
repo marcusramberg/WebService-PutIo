@@ -3,3 +3,5 @@
 
 0.1    2010-06-20 21:40
     - Initial release
+0.2    2011-11-20 15:00
+    - Update Mojolicious APIs, add access token
